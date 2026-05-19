@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aristóteles — Teoria do Conhecimento, Ética e Política | Aula Completa</title>
+<style>
+  /* ============================================================
+     PALETA & RESET
+     ============================================================ */
+  :root{
+    --bg:#f6f1e6;           /* pergaminho claro */
+    --bg-card:#fffdf8;      /* card creme */
+    --bg-dark:#0f2032;      /* azul-noite */
+    --bg-deep:#13283f;      /* azul-profundo (sidebar/header) */
+    --ink:#1c2331;          /* texto principal */
+    --ink-soft:#3a4356;     /* texto secundário */
+    --wine:#7a1d2a;         /* vinho (títulos e destaques) */
+    --wine-light:#a93a4a;
+    --gold:#b8893a;         /* dourado (acentos clássicos) */
+    --gold-soft:#d9b56c;
+    --moss:#3e5c3a;         /* verde-musgo (caixas) */
+    --moss-soft:#dfe7d5;
+    --shadow:0 6px 20px rgba(15,32,50,.10);
+    --shadow-strong:0 12px 40px rgba(15,32,50,.18);
+    --radius:14px;
+    --radius-sm:8px;
+    --serif: Georgia, "Times New Roman", "Crimson Text", "Cormorant Garamond", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{
+    font-family:var(--sans);
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.7;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--gold-soft);color:var(--bg-dark)}
+
+  /* ============================================================
+     HEADER / HERO
+     ============================================================ */
+  .hero{
+    background:
+      linear-gradient(135deg, rgba(15,32,50,.96), rgba(19,40,63,.92)),
+      radial-gradient(circle at 80% 20%, rgba(184,137,58,.25), transparent 60%);
+    color:#f4ecd8;
+    padding:80px 24px 70px;
+    text-align:center;
+    border-bottom:4px solid var(--gold);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"Ⓐ";
+    position:absolute;
+    font-family:var(--serif);
+    font-size:380px;
+    color:rgba(184,137,58,.06);
+    top:-90px;left:50%;
+    transform:translateX(-50%);
+    pointer-events:none;
+    line-height:1;
+  }
+  .hero .kicker{
+    font-family:var(--serif);
+    font-style:italic;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+    font-size:13px;
+    margin-bottom:18px;
+    position:relative;
+  }
+  .hero h1{
+    font-family:var(--serif);
+    font-size:clamp(28px, 4.5vw, 52px);
+    line-height:1.15;
+    font-weight:700;
+    margin-bottom:18px;
+    position:relative;
+  }
+  .hero h1 em{color:var(--gold-soft);font-style:normal;display:block;margin-top:6px;font-size:.7em}
+  .hero p.sub{
+    max-width:760px;margin:0 auto;
+    font-size:18px;color:#e8dcc1;
+    position:relative;
+  }
+  .hero .meta{
+    margin-top:28px;
+    display:flex;justify-content:center;gap:14px;flex-wrap:wrap;
+    position:relative;
+  }
+  .hero .meta span{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(217,181,108,.35);
+    padding:7px 16px;border-radius:30px;
+    font-size:13px;color:#f4ecd8;
+    backdrop-filter:blur(6px);
+  }
+
+  /* ============================================================
+     NAVEGAÇÃO (sticky)
+     ============================================================ */
+  nav.toc{
+    position:sticky;top:0;z-index:50;
+    background:rgba(19,40,63,.97);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(184,137,58,.4);
+    padding:10px 0;
+    box-shadow:0 4px 20px rgba(0,0,0,.18);
+  }
+  nav.toc .wrap{
+    max-width:1200px;margin:0 auto;
+    display:flex;gap:6px;overflow-x:auto;
+    padding:0 16px;
+    scrollbar-width:thin;scrollbar-color:var(--gold) transparent;
+  }
+  nav.toc::-webkit-scrollbar{height:6px}
+  nav.toc a{
+    color:#e8dcc1;text-decoration:none;
+    padding:8px 14px;border-radius:6px;
+    font-size:13.5px;font-weight:500;
+    white-space:nowrap;
+    transition:all .2s ease;
+    border:1px solid transparent;
+  }
+  nav.toc a:hover{background:rgba(184,137,58,.18);color:#fff;border-color:rgba(184,137,58,.5)}
+
+  /* ============================================================
+     LAYOUT
+     ============================================================ */
+  main{
+    max-width:1080px;margin:0 auto;
+    padding:50px 24px 80px;
+  }
+  section{
+    margin-bottom:60px;
+    scroll-margin-top:80px;
+  }
+  section > .section-header{
+    border-left:5px solid var(--wine);
+    padding:6px 0 6px 18px;
+    margin-bottom:26px;
+  }
+  section h2{
+    font-family:var(--serif);
+    font-size:clamp(24px, 3vw, 34px);
+    color:var(--wine);
+    font-weight:700;
+    line-height:1.2;
+  }
+  section h2 .num{
+    color:var(--gold);
+    font-size:.75em;
+    margin-right:10px;
+    font-style:italic;
+  }
+  section h3{
+    font-family:var(--serif);
+    font-size:22px;
+    color:var(--bg-deep);
+    margin:30px 0 14px;
+    font-weight:700;
+  }
+  section h4{
+    font-size:17px;
+    color:var(--wine);
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    margin:22px 0 10px;
+    font-weight:700;
+  }
+  p{margin-bottom:14px}
+  p + p{margin-top:0}
+  strong{color:var(--bg-deep);font-weight:700}
+  em.term{
+    color:var(--wine);font-weight:600;font-style:normal;
+    border-bottom:1.5px dotted var(--gold);
+  }
+
+  ul, ol{margin:10px 0 18px 22px}
+  li{margin-bottom:8px}
+  li::marker{color:var(--gold)}
+
+  /* ============================================================
+     CARDS / CAIXAS
+     ============================================================ */
+  .card{
+    background:var(--bg-card);
+    border-radius:var(--radius);
+    padding:26px 30px;
+    box-shadow:var(--shadow);
+    border:1px solid rgba(184,137,58,.18);
+    margin:18px 0;
+  }
+  .card.bordered-left{border-left:5px solid var(--gold)}
+  .card.bordered-wine{border-left:5px solid var(--wine)}
+
+  /* Caixa "Visão Geral" */
+  .overview{
+    background:linear-gradient(135deg, #fffaf0, #f8f0db);
+    border:1px solid var(--gold-soft);
+    border-radius:var(--radius);
+    padding:30px 32px;
+    box-shadow:var(--shadow);
+    position:relative;
+  }
+  .overview::before{
+    content:"❝";
+    position:absolute;
+    top:-20px;left:24px;
+    font-family:var(--serif);
+    font-size:80px;color:var(--gold);
+    line-height:1;
+  }
+
+  /* Citações famosas */
+  blockquote{
+    background:#1a2c43;
+    color:#f4ecd8;
+    border-left:5px solid var(--gold);
+    padding:24px 28px;
+    border-radius:0 var(--radius) var(--radius) 0;
+    margin:24px 0;
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:19px;
+    box-shadow:var(--shadow);
+    position:relative;
+  }
+  blockquote::before{
+    content:"“";
+    position:absolute;
+    top:-4px;left:18px;
+    font-size:48px;color:var(--gold-soft);
+    font-family:var(--serif);
+    line-height:1;
+  }
+  blockquote cite{
+    display:block;margin-top:12px;
+    font-style:normal;font-size:14px;
+    color:var(--gold-soft);
+    letter-spacing:.05em;
+  }
+  blockquote.gold{background:#2a1f10;border-left-color:var(--gold-soft)}
+
+  /* Caixas especiais */
+  .box{
+    border-radius:var(--radius);
+    padding:22px 26px;
+    margin:20px 0;
+    box-shadow:var(--shadow);
+  }
+  .box .box-title{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:18px;
+    display:flex;align-items:center;gap:10px;
+    margin-bottom:12px;
+  }
+  .box .box-title .icon{
+    width:32px;height:32px;border-radius:50%;
+    display:inline-flex;align-items:center;justify-content:center;
+    font-size:18px;font-weight:700;
+    flex-shrink:0;
+  }
+  .box-attention{background:#fff7e6;border:1px solid #e9c977}
+  .box-attention .box-title{color:#7a5a17}
+  .box-attention .box-title .icon{background:#e9c977;color:#fff}
+
+  .box-trap{background:#fbeaea;border:1px solid #d28a8a}
+  .box-trap .box-title{color:#7a1d2a}
+  .box-trap .box-title .icon{background:#a93a4a;color:#fff}
+
+  .box-exam{background:#e8f0e8;border:1px solid #95b095}
+  .box-exam .box-title{color:#2c4a2c}
+  .box-exam .box-title .icon{background:#3e5c3a;color:#fff}
+
+  .box-extra{background:#eef3f9;border:1px solid #9bb5d4}
+  .box-extra .box-title{color:#1a3f6b}
+  .box-extra .box-title .icon{background:#2a5a99;color:#fff}
+
+  .box-example{background:#fff3e5;border:1px solid #e8b16d}
+  .box-example .box-title{color:#8a4a10}
+  .box-example .box-title .icon{background:#c97e2a;color:#fff}
+
+  /* ============================================================
+     TABELAS / COMPARAÇÕES
+     ============================================================ */
+  .comparison{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin:24px 0;
+  }
+  .compare-col{
+    background:var(--bg-card);
+    border-radius:var(--radius);
+    padding:24px;
+    box-shadow:var(--shadow);
+    border-top:5px solid;
+  }
+  .compare-col.platao{border-color:#5a7fa3}
+  .compare-col.aristoteles{border-color:var(--wine)}
+  .compare-col h4{
+    font-family:var(--serif);
+    font-size:22px;
+    margin:0 0 14px;
+    text-transform:none;letter-spacing:0;
+  }
+  .compare-col.platao h4{color:#2a4a6d}
+  .compare-col.aristoteles h4{color:var(--wine)}
+  .compare-col ul{margin-left:18px}
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    background:var(--bg-card);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    margin:22px 0;
+  }
+  table th{
+    background:var(--bg-deep);
+    color:#f4ecd8;
+    font-family:var(--serif);
+    text-align:left;
+    padding:14px 16px;
+    font-size:15px;letter-spacing:.04em;
+  }
+  table td{
+    padding:13px 16px;
+    border-bottom:1px solid rgba(184,137,58,.18);
+    font-size:15.5px;
+    vertical-align:top;
+  }
+  table tr:last-child td{border-bottom:none}
+  table tr:nth-child(even) td{background:rgba(184,137,58,.04)}
+
+  /* ============================================================
+     DIAGRAMAS / ESQUEMAS EM HTML/CSS
+     ============================================================ */
+  .scheme{
+    background:var(--bg-card);
+    border:1px dashed var(--gold);
+    border-radius:var(--radius);
+    padding:26px;
+    margin:24px 0;
+    font-family:var(--serif);
+  }
+  .scheme h4{
+    font-family:var(--serif);
+    color:var(--wine);
+    text-transform:none;letter-spacing:0;
+    text-align:center;
+    margin-bottom:18px;
+    font-size:19px;
+  }
+
+  /* Hierarquia das ciências */
+  .pyramid{
+    display:flex;flex-direction:column;align-items:center;gap:4px;
+  }
+  .pyramid .level{
+    padding:14px 24px;
+    border-radius:8px;
+    text-align:center;
+    color:#fff;
+    font-weight:600;
+    box-shadow:var(--shadow);
+    font-family:var(--sans);
+  }
+  .pyramid .level small{display:block;font-weight:400;font-size:13px;opacity:.9;margin-top:3px}
+  .pyramid .l1{background:var(--wine);width:60%}
+  .pyramid .l2{background:var(--gold);width:75%;color:#fff}
+  .pyramid .l3{background:var(--moss);width:90%}
+
+  /* Esquema de setas */
+  .arrow-flow{
+    display:flex;align-items:center;justify-content:center;
+    flex-wrap:wrap;gap:10px;margin:18px 0;
+  }
+  .arrow-flow .node{
+    background:var(--bg-deep);color:#f4ecd8;
+    padding:14px 22px;border-radius:8px;
+    font-weight:600;font-family:var(--sans);
+    box-shadow:var(--shadow);
+    text-align:center;
+  }
+  .arrow-flow .node.gold{background:var(--gold);color:#fff}
+  .arrow-flow .node.wine{background:var(--wine);color:#fff}
+  .arrow-flow .arrow{
+    font-size:26px;color:var(--gold);
+    font-weight:bold;
+  }
+
+  /* Esquema "Justa Medida" */
+  .virtue-line{
+    display:grid;
+    grid-template-columns:1fr auto 1fr auto 1fr;
+    align-items:center;
+    gap:10px;
+    background:linear-gradient(90deg, #fbeaea, #fffdf8, #fbeaea);
+    border-radius:var(--radius);
+    padding:18px;
+    margin:14px 0;
+    font-family:var(--sans);
+  }
+  .virtue-line > div{text-align:center;padding:8px}
+  .virtue-line .extreme{
+    background:#a93a4a;color:#fff;
+    padding:12px;border-radius:8px;font-weight:600;
+  }
+  .virtue-line .middle{
+    background:var(--gold);color:#fff;
+    padding:14px;border-radius:8px;font-weight:700;
+    font-size:1.05em;
+    box-shadow:var(--shadow);
+  }
+  .virtue-line .arrow-h{font-size:24px;color:var(--ink-soft)}
+
+  /* As quatro causas (grade) */
+  .four-causes{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    margin:20px 0;
+  }
+  .cause-card{
+    background:var(--bg-card);
+    border-radius:var(--radius);
+    padding:18px 20px;
+    border-top:4px solid var(--gold);
+    box-shadow:var(--shadow);
+  }
+  .cause-card.final{border-top-color:var(--wine);background:linear-gradient(135deg,#fffaf0,#fbeaea)}
+  .cause-card h5{
+    font-family:var(--serif);
+    color:var(--wine);
+    font-size:17px;
+    margin-bottom:6px;
+  }
+  .cause-card small{color:var(--ink-soft);display:block;margin-top:6px;font-style:italic}
+
+  /* Formas de governo - tabela visual */
+  .gov-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:14px;
+    margin:18px 0;
+  }
+  .gov-card{
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    background:var(--bg-card);
+  }
+  .gov-card .gov-header{
+    padding:12px;text-align:center;
+    color:#fff;font-family:var(--serif);font-weight:700;
+    font-size:16px;
+  }
+  .gov-card.just .gov-header{background:var(--moss)}
+  .gov-card.unjust .gov-header{background:var(--wine)}
+  .gov-card .gov-body{padding:14px 16px;font-size:14.5px}
+  .gov-card .gov-body strong{display:block;color:var(--wine);margin-bottom:4px}
+
+  /* ============================================================
+     VÍDEOS (botões clicáveis)
+     ============================================================ */
+  .video-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    gap:16px;
+    margin-top:22px;
+  }
+  a.video-btn{
+    text-decoration:none;
+    color:inherit;
+    display:flex;flex-direction:column;
+    background:var(--bg-card);
+    border-radius:var(--radius);
+    overflow:hidden;
+    border:1px solid rgba(184,137,58,.25);
+    box-shadow:var(--shadow);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  a.video-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:var(--shadow-strong);
+  }
+  a.video-btn .v-top{
+    background:linear-gradient(135deg, #cc0000, #8a0000);
+    color:#fff;
+    padding:18px 20px;
+    display:flex;align-items:center;gap:12px;
+  }
+  a.video-btn .v-top .play{
+    width:38px;height:38px;border-radius:50%;
+    background:rgba(255,255,255,.18);
+    display:inline-flex;align-items:center;justify-content:center;
+    font-size:14px;
+    flex-shrink:0;
+    border:2px solid rgba(255,255,255,.4);
+  }
+  a.video-btn .v-top .v-label{
+    font-size:13px;letter-spacing:.06em;opacity:.95;
+    text-transform:uppercase;font-weight:600;
+  }
+  a.video-btn .v-body{padding:16px 20px}
+  a.video-btn .v-title{
+    font-family:var(--serif);
+    font-weight:700;
+    color:var(--bg-deep);
+    font-size:16px;line-height:1.3;
+    margin-bottom:6px;
+  }
+  a.video-btn .v-meta{
+    font-size:13px;color:var(--ink-soft);
+    display:flex;justify-content:space-between;
+    margin-top:8px;
+  }
+  a.video-btn .v-meta strong{color:var(--wine)}
+
+  /* ============================================================
+     REVISÃO FINAL
+     ============================================================ */
+  .review{
+    background:linear-gradient(135deg, #13283f, #0f2032);
+    color:#f4ecd8;
+    border-radius:var(--radius);
+    padding:36px 40px;
+    box-shadow:var(--shadow-strong);
+    border:1px solid rgba(184,137,58,.3);
+  }
+  .review h3{
+    font-family:var(--serif);
+    color:var(--gold-soft);
+    font-size:24px;
+    margin-bottom:18px;
+  }
+  .review ol{margin-left:22px}
+  .review ol li{margin-bottom:12px}
+  .review ol li::marker{color:var(--gold)}
+  .review strong{color:var(--gold-soft)}
+
+  /* Footer */
+  footer{
+    text-align:center;
+    padding:30px 16px;
+    background:var(--bg-deep);
+    color:#a8b3c2;
+    font-size:14px;
+    border-top:3px solid var(--gold);
+  }
+  footer .ornament{
+    font-family:var(--serif);
+    color:var(--gold);
+    font-size:22px;
+    margin-bottom:10px;
+    letter-spacing:.5em;
+  }
+
+  /* ============================================================
+     RESPONSIVIDADE
+     ============================================================ */
+  @media (max-width:780px){
+    .comparison{grid-template-columns:1fr}
+    .four-causes{grid-template-columns:1fr}
+    .gov-grid{grid-template-columns:1fr}
+    .virtue-line{grid-template-columns:1fr;text-align:center}
+    .virtue-line .arrow-h{transform:rotate(90deg)}
+    .pyramid .l1,.pyramid .l2,.pyramid .l3{width:95%}
+    .hero{padding:60px 18px 50px}
+    main{padding:36px 16px 60px}
+    .card,.overview{padding:22px 20px}
+    blockquote{padding:20px 22px;font-size:17px}
+    .review{padding:28px 22px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<header class="hero">
+  <div class="kicker">Filosofia · 2º Ano EM · Vestibulares Concorridos</div>
+  <h1>Aristóteles<em>Teoria do Conhecimento, Ética e Política</em></h1>
+  <p class="sub">Uma aula completa, do zero ao avançado, organizada à maneira de uma aula particular premium — com esquemas, exemplos, pegadinhas de prova e vídeos verificados de professores referência.</p>
+  <div class="meta">
+    <span>384–322 a.C.</span>
+    <span>Estagira → Atenas</span>
+    <span>Discípulo de Platão</span>
+    <span>Fundador do Liceu</span>
+    <span>Preceptor de Alexandre, o Grande</span>
+  </div>
+</header>
+
+<!-- ============================================================
+     NAVEGAÇÃO
+     ============================================================ -->
+<nav class="toc">
+  <div class="wrap">
+    <a href="#visao">Visão Geral</a>
+    <a href="#biografia">Biografia</a>
+    <a href="#liceu">Liceu</a>
+    <a href="#vs-platao">Aristóteles × Platão</a>
+    <a href="#ciencias">As Ciências</a>
+    <a href="#metafisica">Metafísica</a>
+    <a href="#substancia">Substância & Acidentes</a>
+    <a href="#essencia">Essência & Hilemorfismo</a>
+    <a href="#ato-potencia">Ato e Potência</a>
+    <a href="#causas">As Quatro Causas</a>
+    <a href="#politica">Política</a>
+    <a href="#governos">Formas de Governo</a>
+    <a href="#etica">Ética (Justa Medida)</a>
+    <a href="#pegadinhas">Pegadinhas</a>
+    <a href="#prova">O que cai em prova</a>
+    <a href="#videos">Vídeos</a>
+    <a href="#revisao">Revisão Final</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============================================================
+     VISÃO GERAL
+     ============================================================ -->
+<section id="visao">
+  <div class="section-header"><h2><span class="num">01.</span>Visão Geral do Tema</h2></div>
+  <div class="overview">
+    <p>Aristóteles é, ao lado de Platão e Sócrates, um dos três pilares da filosofia clássica grega — mas seu impacto no Ocidente é, em muitos aspectos, o mais duradouro. Ele criou métodos, vocabulário e divisões do conhecimento que ainda usamos hoje: <em class="term">lógica formal</em>, <em class="term">ética</em>, <em class="term">política</em>, <em class="term">metafísica</em>, <em class="term">poética</em>, <em class="term">biologia</em>, <em class="term">retórica</em>.</p>
+    <p>O ponto-chave para entender Aristóteles é este: enquanto Platão, seu mestre, “olhava para o céu” — para um mundo perfeito e ideal —, Aristóteles “olhou para a terra”, para os objetos sensíveis, para a natureza, para a experiência. Esse giro é tão importante que aparece literalmente pintado, séculos depois, na <strong>Escola de Atenas</strong>, de Rafael Sanzio.</p>
+    <p>Nesta aula, vamos percorrer três grandes blocos do pensamento aristotélico, com base direta nos slides enviados e nas fontes primárias:</p>
+    <ul>
+      <li><strong>Teoria do Conhecimento</strong> — a ruptura com Platão, a defesa dos sentidos como ponto de partida, a hierarquia das ciências, a metafísica como “estudo do ser enquanto ser”.</li>
+      <li><strong>Ontologia e Mudança</strong> — substância e acidentes, hilemorfismo, ato e potência, as quatro causas, o Primeiro Motor Imóvel.</li>
+      <li><strong>Ética e Política</strong> — o ser humano como animal político (<em>zoon politikon</em>), as seis formas de governo, a felicidade como fim (<em>eudaimonia</em>) e a doutrina da <em>justa medida</em>.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================
+     BIOGRAFIA
+     ============================================================ -->
+<section id="biografia">
+  <div class="section-header"><h2><span class="num">02.</span>Biografia: quem foi Aristóteles (384–322 a.C.)</h2></div>
+
+  <div class="card bordered-left">
+    <p>Aristóteles <strong>nasceu em Estagira</strong>, cidade da península da Calcídica, ao norte da Grécia. Era filho de <strong>Nicômaco</strong>, médico que servia ao rei <strong>Amintas II da Macedônia</strong> — pai de Filipe II e avô de Alexandre, o Grande. Essa origem médica e macedônica vai marcar toda a sua filosofia: ela é, ao mesmo tempo, <em class="term">empírica</em> (atenta à observação, herança da medicina) e <em class="term">politicamente conectada</em> ao poder macedônico.</p>
+
+    <p>Aos <strong>18 anos</strong>, foi para Atenas e tornou-se <strong>discípulo de Platão</strong>, permanecendo <strong>vinte anos</strong> na Academia. Isso é um dado decisivo: Aristóteles não é um rival distante de Platão — ele foi formado por Platão e conhecia profundamente sua filosofia. Suas críticas, portanto, vêm de dentro.</p>
+
+    <p>Em <strong>343 a.C.</strong>, Filipe II o chamou à corte macedônica para educar seu filho, o príncipe <strong>Alexandre, o Grande</strong>. Isso significa que o maior filósofo da Antiguidade foi professor do maior conquistador do mundo antigo — fato que ajudou a difundir, junto às conquistas de Alexandre, a cultura grega e o pensamento aristotélico por todo o Mediterrâneo e Oriente Próximo.</p>
+  </div>
+
+  <div class="box box-extra">
+    <div class="box-title"><span class="icon">+</span>Complemento para melhor compreensão</div>
+    <p>Aristóteles morre em <strong>322 a.C.</strong>, um ano depois da morte de Alexandre (323 a.C.). Com a queda da hegemonia macedônica em Atenas, ele é acusado de “impiedade” — a mesma acusação que matou Sócrates. Para “não deixar os atenienses pecarem duas vezes contra a filosofia” (frase atribuída a ele), foge para a Eubeia, onde morre pouco depois. Esse detalhe biográfico costuma aparecer em questões discursivas de FUVEST e UNESP.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     LICEU
+     ============================================================ -->
+<section id="liceu">
+  <div class="section-header"><h2><span class="num">03.</span>A Fundação do Liceu</h2></div>
+
+  <div class="card">
+    <p>Por volta de <strong>335 a.C.</strong>, Aristóteles voltou a Atenas (após o período como preceptor de Alexandre) e fundou sua própria escola de filosofia: o <strong>Liceu</strong>, também chamado de <strong>Escola Peripatética</strong> ou <strong>Peripatos</strong>.</p>
+    <p>O nome <em>Peripatos</em> vem do <strong>jardim do Liceu</strong>, onde Aristóteles ministrava suas aulas enquanto caminhava com os discípulos. Por isso seus alunos eram chamados de <strong>peripatéticos</strong> (literalmente “os que andam de um lado para outro”). Esse detalhe não é apenas curioso: ele mostra a diferença de método entre Aristóteles (debate dinâmico, observação) e Platão (estudo abstrato dentro da Academia).</p>
+  </div>
+
+  <div class="scheme">
+    <h4>Linha do tempo essencial</h4>
+    <div class="arrow-flow">
+      <div class="node">384 a.C.<br><small style="opacity:.8;font-weight:400">Nascimento em Estagira</small></div>
+      <div class="arrow">→</div>
+      <div class="node gold">367 a.C.<br><small style="opacity:.9;font-weight:400">Entra na Academia</small></div>
+      <div class="arrow">→</div>
+      <div class="node">347 a.C.<br><small style="opacity:.8;font-weight:400">Sai da Academia</small></div>
+      <div class="arrow">→</div>
+      <div class="node gold">343 a.C.<br><small style="opacity:.9;font-weight:400">Preceptor de Alexandre</small></div>
+      <div class="arrow">→</div>
+      <div class="node wine">335 a.C.<br><small style="opacity:.9;font-weight:400">Funda o Liceu</small></div>
+      <div class="arrow">→</div>
+      <div class="node">322 a.C.<br><small style="opacity:.8;font-weight:400">Morte na Eubeia</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ARISTÓTELES VS PLATÃO
+     ============================================================ -->
+<section id="vs-platao">
+  <div class="section-header"><h2><span class="num">04.</span>Aristóteles × Platão — A Ruptura na Teoria do Conhecimento</h2></div>
+
+  <p>Este é provavelmente o <strong>tópico mais importante</strong> de Aristóteles para vestibular. Toda a metafísica e a epistemologia aristotélicas se constroem como uma crítica direta ao platonismo. Entender este ponto é meio caminho andado.</p>
+
+  <blockquote>
+    Nihil est in intellectu quod prius non fuerit in sensu — <strong>“Nada está no intelecto que antes não tenha passado pelos sentidos.”</strong>
+    <cite>— Síntese clássica do empirismo aristotélico</cite>
+  </blockquote>
+
+  <p>Essa frase resume o posicionamento de Aristóteles quanto à aquisição do conhecimento. Para ele, <strong>todo conhecimento começa pela experiência sensível</strong> — pelos sentidos, pela observação do mundo material. A partir daí, a razão abstrai e generaliza.</p>
+
+  <h3>O ponto da divergência</h3>
+  <p>Para Aristóteles, Platão se <strong>equivocou</strong> ao colocar as formas (essências) das coisas materiais em um <em>mundo das ideias</em> separado da realidade sensível. Para Aristóteles, <strong>a essência dos seres materiais está nos próprios objetos</strong>, não em uma realidade externa.</p>
+
+  <div class="comparison">
+    <div class="compare-col platao">
+      <h4>Platão (mestre)</h4>
+      <ul>
+        <li><strong>Onde estão as essências?</strong> Em um plano transcendente, o <em>mundo das ideias</em>.</li>
+        <li><strong>Como conhecer?</strong> Somente pelo <strong>pensamento</strong>, pela razão pura.</li>
+        <li><strong>Os sentidos?</strong> Enganam — produzem apenas opinião (<em>doxa</em>).</li>
+        <li><strong>Mundo sensível?</strong> Cópia imperfeita do mundo das ideias.</li>
+        <li><strong>Postura corporal na Escola de Atenas:</strong> dedo apontado para o <strong>céu</strong>.</li>
+      </ul>
+    </div>
+    <div class="compare-col aristoteles">
+      <h4>Aristóteles (discípulo)</h4>
+      <ul>
+        <li><strong>Onde estão as essências?</strong> <em>Nos próprios objetos materiais</em>.</li>
+        <li><strong>Como conhecer?</strong> Começa pelos <strong>sentidos</strong>; depois a razão abstrai.</li>
+        <li><strong>Os sentidos?</strong> Fonte legítima e primeira do conhecimento.</li>
+        <li><strong>Mundo sensível?</strong> A realidade efetiva, plena, a ser estudada.</li>
+        <li><strong>Postura corporal na Escola de Atenas:</strong> mão estendida em direção à <strong>realidade sensível</strong> (paralela ao chão).</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>A crítica decisiva: a duplicação inútil</h3>
+  <div class="card bordered-wine">
+    <p>Para Aristóteles, a Teoria das Ideias de Platão <strong>duplica desnecessariamente os seres materiais</strong>: ela explica os entes materiais a partir de entes ideais que seriam suas cópias perfeitas. Isso significa que, para entender uma cadeira concreta, Platão precisa de duas cadeiras — a sensível e a ideal — quando uma já bastaria.</p>
+    <p>Portanto, a noção platônica de <em class="term">participação</em> (as coisas reais “participam” das ideias) é, para Aristóteles, <strong>supérflua, inútil, criativa, mas sem qualquer relação com a verdade</strong>. É uma teoria bonita, mas inflada — uma vez que viola o princípio de economia explicativa.</p>
+  </div>
+
+  <div class="box box-extra">
+    <div class="box-title"><span class="icon">★</span>A Escola de Atenas (Rafael Sanzio, 1483–1520)</div>
+    <p>O afresco mais famoso da filosofia coloca <strong>Platão e Aristóteles no centro exato</strong> da composição, caminhando lado a lado. Platão, à esquerda do observador, aponta para o <strong>alto</strong> — representando a filosofia abstrata, o mundo das ideias. Aristóteles, à direita do observador, mantém a mão <strong>paralela ao chão</strong> — representando a filosofia natural e empírica, voltada à realidade sensível. Rafael, em uma única imagem, sintetizou séculos de história da filosofia.</p>
+    <p><strong>Pista para a prova:</strong> sempre que aparecer uma reprodução desse afresco em uma questão, a resposta envolverá <em>esse contraste de direções</em>.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     CIÊNCIAS
+     ============================================================ -->
+<section id="ciencias">
+  <div class="section-header"><h2><span class="num">05.</span>A Delimitação das Ciências</h2></div>
+
+  <p>Aristóteles foi um dos primeiros pensadores a <strong>organizar e hierarquizar o saber</strong>. Ele dividiu as ciências em <strong>três grandes tipos</strong>, hierarquizados de cima para baixo conforme seu grau de dignidade:</p>
+
+  <div class="scheme">
+    <h4>Hierarquia das Ciências (do superior ao inferior)</h4>
+    <div class="pyramid">
+      <div class="level l1">1. CIÊNCIAS TEORÉTICAS<small>Contemplação da verdade — superiores</small></div>
+      <div class="level l2">2. CIÊNCIAS PRÁTICAS<small>Orientação da ação humana</small></div>
+      <div class="level l3">3. CIÊNCIAS POÉTICAS<small>Fabricação / produção — inferiores</small></div>
+    </div>
+  </div>
+
+  <h3>5.1 As Ciências Teoréticas (ou Teóricas)</h3>
+  <div class="card bordered-left">
+    <p>Produzem um saber <strong>universal</strong> (válido em qualquer situação) e <strong>necessário</strong> (que não pode ser de outro modo). Estão voltadas para a <strong>contemplação da verdade</strong>, não para a ação ou a fabricação.</p>
+    <p>Aristóteles as divide em quatro:</p>
+    <ul>
+      <li><strong>Metafísica</strong> (a “Filosofia Primeira”): estuda o ser enquanto ser.</li>
+      <li><strong>Matemática</strong>: estuda as quantidades e grandezas.</li>
+      <li><strong>Física</strong>: estuda os seres naturais em movimento.</li>
+      <li><strong>Psicologia</strong>: estuda a alma (<em>psyché</em>), em sentido aristotélico — não no sentido moderno.</li>
+    </ul>
+  </div>
+
+  <h3>5.2 As Ciências Práticas</h3>
+  <div class="card bordered-left">
+    <p>Produzem um conhecimento <strong>particular</strong> (varia conforme as circunstâncias) e <strong>possível</strong> (não envolve necessidade). Estão voltadas para o <strong>bem moral dos indivíduos</strong>, ou seja, para orientar as ações humanas.</p>
+    <p>São três:</p>
+    <ul>
+      <li><strong>Economia</strong> (no sentido grego: gestão da casa, <em>oikos</em>).</li>
+      <li><strong>Ética</strong>: estuda a ação individual virtuosa.</li>
+      <li><strong>Política</strong>: estuda a vida em comum na cidade (<em>pólis</em>).</li>
+    </ul>
+    <p><strong>Atenção a este ponto, que cai muito:</strong> para Aristóteles, <em>Ética e Política são indissociáveis</em> — a Ética orienta a ação política, e a Política só se sustenta sobre uma base ética. Não há político bom sem cidadão virtuoso, nem cidadão virtuoso sem boa pólis.</p>
+  </div>
+
+  <h3>5.3 As Ciências Poéticas</h3>
+  <div class="card bordered-left">
+    <p>Do grego <em>poiesis</em> = fabricar, produzir. <strong>Não confunda com “poesia” no sentido literário moderno.</strong> São consideradas <strong>inferiores</strong> às demais, pois estão ligadas às atividades de <strong>fabricação de algo exterior</strong>: pinturas, esculturas, músicas, peças teatrais — e, segundo o slide, até mesmo uma palestra (no sentido de produção retórica).</p>
+    <p>Visam <strong>produzir uma obra</strong>. O critério aristotélico de inferioridade é claro: a contemplação (teorética) é mais nobre que a ação (prática), e a ação é mais nobre que a fabricação (poética).</p>
+  </div>
+
+  <div class="box box-trap">
+    <div class="box-title"><span class="icon">!</span>Pegadinha clássica</div>
+    <p>Muitos alunos confundem “Ciência Poética” com poesia / literatura. <strong>Não é isso!</strong> O termo cobre <em>toda fabricação</em> humana, inclusive a arte em sentido amplo. Em provas, espere uma alternativa errada que diga “as ciências poéticas estudam a poesia lírica” — falso.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     METAFÍSICA
+     ============================================================ -->
+<section id="metafisica">
+  <div class="section-header"><h2><span class="num">06.</span>A Filosofia Primeira (Metafísica)</h2></div>
+
+  <p>Aristóteles chamava sua reflexão mais elevada de <strong>“Filosofia Primeira”</strong>. Foi um discípulo seu, séculos depois, que renomeou esses textos com a palavra que entrou para a história.</p>
+
+  <h3>6.1 De onde veio a palavra “Metafísica”?</h3>
+  <div class="card">
+    <p>O título <strong>“Metafísica”</strong> <em>não foi criado por Aristóteles</em>. Foi atribuído pelo organizador de suas obras, <strong>Andrônico de Rodes</strong>, discípulo de Aristóteles que viveu por volta do <strong>século I a.C.</strong> (cerca de 300 anos depois do mestre).</p>
+    <p>O que aconteceu? Andrônico estava organizando os manuscritos de Aristóteles e encontrou um conjunto de textos <strong>sem título</strong>. Para classificá-los, colocou-os <strong>depois</strong> dos livros da Física na sequência de leitura. Em grego, <strong>“meta” significa “aquilo que vem depois”</strong>. Logo: <em>metà tà physiká</em> = “depois dos textos físicos”.</p>
+    <p>Com o tempo, “Metafísica” passou a designar não apenas a ordem editorial, mas o próprio <em>pensar</em> sobre temas que estão para além da realidade física — ou seja, sobre o <strong>suprassensível</strong>.</p>
+  </div>
+
+  <div class="box box-attention">
+    <div class="box-title"><span class="icon">i</span>Vai cair em prova</div>
+    <p>A pergunta clássica é: <em>“Quem cunhou o termo metafísica?”</em> A resposta correta é <strong>Andrônico de Rodes</strong>, e não Aristóteles. Decore.</p>
+  </div>
+
+  <h3>6.2 O que é, então, a Metafísica?</h3>
+  <div class="card bordered-wine">
+    <p>Para Aristóteles, a Metafísica é a <strong>ciência que estuda “o ser enquanto ser”</strong> (em grego: <em>tò ón hêi ón</em>). Ou seja: enquanto outras ciências estudam tipos particulares de seres (a Física estuda os seres em movimento, a Biologia os seres vivos etc.), a Metafísica estuda o que <strong>significa ser</strong>, o ser em sua máxima generalidade e em seus princípios primeiros.</p>
+    <p>Ela trata do <strong>suprassensível</strong> — daquilo que está <em>além</em> do sensível. Compare:</p>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Tipo de Saber</th><th>O que conhece</th><th>Exemplo</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Saber empírico</strong></td>
+        <td>Coisas particulares</td>
+        <td>Esta mesa, este cavalo</td>
+      </tr>
+      <tr>
+        <td><strong>Saber técnico</strong></td>
+        <td>Procedimentos, ofícios</td>
+        <td>Como fazer uma cirurgia, como construir uma casa</td>
+      </tr>
+      <tr>
+        <td><strong>Saber metafísico</strong></td>
+        <td>O ser enquanto ser (suprassensível)</td>
+        <td>Princípios universais da realidade</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================================================
+     SUBSTÂNCIA E ACIDENTES
+     ============================================================ -->
+<section id="substancia">
+  <div class="section-header"><h2><span class="num">07.</span>Substância e Acidentes</h2></div>
+
+  <p>Para entender o que Aristóteles quer dizer com “ser”, precisamos de duas categorias fundamentais: <strong>substância</strong> e <strong>acidente</strong>.</p>
+
+  <div class="card">
+    <p><strong>Substância</strong> (<em>ousía</em>) é <strong>aquilo que é em si mesmo</strong>. Existe por conta própria; não depende de outro para ser o que é.</p>
+    <p><strong>Acidente</strong> é <strong>aquilo que é em outro</strong>. Existe sempre em uma substância; sem ela, não tem existência própria.</p>
+  </div>
+
+  <div class="box box-example">
+    <div class="box-title"><span class="icon">✎</span>Exemplo do cavalo (do slide)</div>
+    <p><strong>O cavalo é uma substância:</strong> ao existir, só depende de si para ser o que é — é cavalo independentemente de tudo mais.</p>
+    <p>Mas o <strong>tamanho</strong> do cavalo e a sua <strong>cor</strong> não existem em si mesmos. Você não encontra “a cor castanha” caminhando sozinha pelo pasto. A cor castanha só existe porque há um cavalo (ou outro corpo) que a sustenta. Logo, <strong>cor e tamanho são acidentes</strong>: dependem do ser cavalo para existir.</p>
+  </div>
+
+  <h3>Os três tipos de substância</h3>
+  <p>Aristóteles distingue três níveis de substâncias, em ordem crescente de perfeição:</p>
+
+  <div class="four-causes">
+    <div class="cause-card">
+      <h5>1. Substâncias sensíveis e corruptíveis</h5>
+      <p>Nascem, se desenvolvem e desaparecem. Estão sujeitas a todas as mudanças.</p>
+      <small>Exemplos: uma árvore, um cavalo, um ser humano.</small>
+    </div>
+    <div class="cause-card">
+      <h5>2. Substâncias sensíveis e incorruptíveis</h5>
+      <p>Podem ser percebidas, mas <strong>não passam por nenhum tipo de mudança</strong> — são eternas.</p>
+      <small>Exemplos (para Aristóteles): planetas e estrelas. Ele não sabia que astros também morrem.</small>
+    </div>
+    <div class="cause-card final">
+      <h5>3. Substância suprassensível</h5>
+      <p>O <strong>Primeiro Motor Imóvel</strong>: o deus aristotélico. Causa de todo movimento, mas ele mesmo imóvel.</p>
+      <small>É a substância mais perfeita, fora do alcance dos sentidos.</small>
+    </div>
+  </div>
+
+  <h3>O Primeiro Motor Imóvel</h3>
+  <div class="card bordered-wine">
+    <p>O <strong>deus aristotélico</strong> não é um deus criador (semelhante, nesse ponto, ao <em>Demiurgo</em> de Platão, que também não cria do nada). Aristóteles não tem ideia de criação <em>ex nihilo</em> (a partir do nada) — essa será uma contribuição posterior, sobretudo cristã.</p>
+    <p>O deus de Aristóteles <strong>exerce uma atração sobre o Universo</strong>: motiva sua existência e gera o movimento dos corpos <em>atraindo tudo para si</em>, como um ímã atrai limalha. Ele é o fim último (a causa final) de todo movimento — sem ele, nada se move; mas ele mesmo não se move.</p>
+    <p>Por isso é chamado de <em class="term">Motor</em> (move tudo) <em class="term">Imóvel</em> (não é movido por nada) <em class="term">Primeiro</em> (origem de toda cadeia causal). Esse conceito será depois absorvido por <strong>Tomás de Aquino</strong> na demonstração da existência de Deus — base para muitas questões discursivas que cruzam filosofia antiga e medieval.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     ESSÊNCIA E HILEMORFISMO
+     ============================================================ -->
+<section id="essencia">
+  <div class="section-header"><h2><span class="num">08.</span>A Essência e o Hilemorfismo</h2></div>
+
+  <h3>8.1 A essência</h3>
+  <div class="card">
+    <p>A <strong>essência</strong> é o <strong>modo de ser das coisas</strong>. Em cada objeto que compõe a realidade, existe um <em>núcleo</em> do qual emanam todas as suas características. É a essência que faz com que algo seja o que é.</p>
+    <p>É em virtude da essência que <strong>a cobra é cobra</strong>, que o <strong>avião é avião</strong>. Na medida em que os objetos são substâncias, manifestam-se de um modo determinado — como pássaro, elefante ou ovelha — conforme a essência que possuem.</p>
+    <p>O ponto-chave é: para Aristóteles, essa essência <strong>está dentro da própria coisa material</strong>. Não há nenhuma “ideia de cavalo” separada do cavalo — é o cavalo aqui e agora que possui sua própria essência.</p>
+  </div>
+
+  <h3>8.2 O Hilemorfismo</h3>
+  <p>O nome vem do grego: <strong>hylé</strong> (matéria) + <strong>morphé</strong> (forma). Para Aristóteles, <strong>todas as coisas são constituídas por dois princípios inseparáveis</strong>:</p>
+
+  <div class="comparison">
+    <div class="compare-col platao" style="border-color:#7a5a17;">
+      <h4 style="color:#7a5a17">Matéria (hylé)</h4>
+      <ul>
+        <li>É <strong>aquilo de que</strong> algo é feito.</li>
+        <li>É o suporte, o substrato.</li>
+        <li>Por si só, é potencialidade indeterminada.</li>
+      </ul>
+    </div>
+    <div class="compare-col aristoteles">
+      <h4>Forma (morphé)</h4>
+      <ul>
+        <li>É <strong>o que</strong> a coisa é.</li>
+        <li>É a essência, a estrutura, o princípio organizador.</li>
+        <li>Determina e atualiza a matéria.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box box-example">
+    <div class="box-title"><span class="icon">✎</span>Exemplo do anel de ouro</div>
+    <p>Se um <strong>anel de ouro é derretido para se converter em uma corrente de ouro</strong>, o que muda? <strong>Muda a forma</strong> (de “anel” para “corrente”), mas <strong>mantém-se a matéria</strong> (o ouro continua sendo ouro). Esse exemplo (presente nos slides) é a chave para entender que matéria e forma <em>não são coisas</em>, mas <em>princípios</em>: dois aspectos inseparáveis de toda realidade concreta.</p>
+  </div>
+
+  <div class="card bordered-wine">
+    <p><strong>Onde está, neste ponto, a divergência com Platão?</strong></p>
+    <p>Para <strong>Platão</strong>, a forma (a essência) das coisas está no <em>mundo das ideias</em>, longe da matéria. Para <strong>Aristóteles</strong>, todas as coisas são compostas por matéria <em>e</em> forma, ou seja, <strong>a essência das coisas está nelas mesmas</strong>. Não há separação ontológica entre essência e existência sensível.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     ATO E POTÊNCIA
+     ============================================================ -->
+<section id="ato-potencia">
+  <div class="section-header"><h2><span class="num">09.</span>Ato e Potência</h2></div>
+
+  <p>Esta é a maneira que Aristóteles encontra para <strong>resolver um dos grandes problemas da filosofia pré-socrática</strong>: como explicar a <em>mudança</em>? Heráclito dizia que tudo flui (tudo é movimento). Parmênides dizia que o ser é imóvel (movimento é ilusão). Aristóteles propõe uma solução conciliadora.</p>
+
+  <div class="card">
+    <p>Quando a matéria recebe uma nova forma — ou quando a realidade se transforma de qualquer modo —, ocorre um <strong>movimento</strong>. E o movimento é, para Aristóteles, a <strong>passagem da potência para o ato</strong>.</p>
+  </div>
+
+  <h3>Definições precisas</h3>
+
+  <div class="four-causes">
+    <div class="cause-card">
+      <h5>POTÊNCIA</h5>
+      <p>Não é <em>privação</em> (não é mera “falta”). É a <strong>capacidade de adquirir uma perfeição</strong>, de tornar-se algo que ainda não se é.</p>
+      <small>Ex.: a criança tem a potência de se tornar adulto.</small>
+    </div>
+    <div class="cause-card final">
+      <h5>ATO</h5>
+      <p>É a <strong>perfeição atual</strong>. Aquilo que a coisa <em>já é</em>, sua atualização plena no momento presente.</p>
+      <small>Ex.: o adulto é a atualização da potência da criança.</small>
+    </div>
+  </div>
+
+  <div class="box box-example">
+    <div class="box-title"><span class="icon">✎</span>Exemplo do estudante (do slide)</div>
+    <p>Um <strong>estudante de Direito</strong> é, <em>em ato</em>, estudante de Direito — essa é a sua perfeição atual. Mas ele é também, <em>em potência</em>, advogado — porque tem a capacidade de se tornar advogado no futuro.</p>
+    <p>Note que a potência <strong>não é uma ausência total</strong>: o estudante já tem dentro de si a capacidade real de se tornar advogado (não a de se tornar dinossauro). Por isso a potência aristotélica é uma capacidade <em>determinada</em>, não um “vazio”.</p>
+  </div>
+
+  <div class="scheme">
+    <h4>O movimento como passagem (esquema)</h4>
+    <div class="arrow-flow">
+      <div class="node wine">SEMENTE<br><small>(árvore em potência)</small></div>
+      <div class="arrow">→ movimento →</div>
+      <div class="node gold">ÁRVORE<br><small>(em ato)</small></div>
+    </div>
+    <div class="arrow-flow" style="margin-top:14px">
+      <div class="node wine">CRIANÇA<br><small>(adulto em potência)</small></div>
+      <div class="arrow">→ movimento →</div>
+      <div class="node gold">ADULTO<br><small>(em ato)</small></div>
+    </div>
+  </div>
+
+  <div class="box box-attention">
+    <div class="box-title"><span class="icon">i</span>Por que isso resolve o problema do movimento?</div>
+    <p>Parmênides dizia: “do não-ser, nada vem” — logo, mudança seria impossível. Aristóteles responde: a coisa que muda <strong>não vem do puro não-ser</strong>; ela vem de <em>algo que já existia em potência</em>. A semente <em>não é</em> árvore (em ato), mas <em>é</em> árvore (em potência). Assim, o movimento existe sem precisar pressupor o nada absoluto.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     QUATRO CAUSAS
+     ============================================================ -->
+<section id="causas">
+  <div class="section-header"><h2><span class="num">10.</span>As Quatro Causas</h2></div>
+
+  <p>No <strong>Livro I da Metafísica</strong>, Aristóteles afirma que o ser humano, pela exigência de sua natureza, é levado a buscar a <strong>sabedoria</strong>, que é o conhecimento das causas. E para o filósofo, há <strong>quatro causas</strong> que explicam por que tudo o que existe, existe.</p>
+
+  <div class="four-causes">
+    <div class="cause-card">
+      <h5>1. Causa Material</h5>
+      <p>É <strong>a matéria</strong> da qual um ser corpóreo é feito.</p>
+      <small>De que é feito?</small>
+    </div>
+    <div class="cause-card">
+      <h5>2. Causa Formal</h5>
+      <p>É <strong>a forma</strong> que a matéria adquire.</p>
+      <small>Que forma tem?</small>
+    </div>
+    <div class="cause-card">
+      <h5>3. Causa Eficiente</h5>
+      <p>É <strong>o agente</strong> da ação — quem produziu o ser.</p>
+      <small>Quem fez?</small>
+    </div>
+    <div class="cause-card final">
+      <h5>4. Causa Final ★</h5>
+      <p>É <strong>a finalidade, o objetivo, a intenção do agente</strong>. <em>A mais importante.</em></p>
+      <small>Para que serve?</small>
+    </div>
+  </div>
+
+  <div class="box box-example">
+    <div class="box-title"><span class="icon">✎</span>Exemplo da Monalisa (do slide)</div>
+    <p>A pintura da <strong>Monalisa</strong>, de Leonardo da Vinci, possui as quatro causas:</p>
+    <ul>
+      <li><strong>Causa material:</strong> as tintas.</li>
+      <li><strong>Causa formal:</strong> a figura da Monalisa que as tintas adquiriram.</li>
+      <li><strong>Causa eficiente:</strong> Leonardo da Vinci, o pintor.</li>
+      <li><strong>Causa final:</strong> o fim proposto pelo pintor — fazer uma pintura de uma mulher para expressar suas técnicas artísticas.</li>
+    </ul>
+  </div>
+
+  <h3>A hierarquia entre as causas</h3>
+  <div class="card bordered-wine">
+    <p>As quatro causas <strong>são dispostas em uma hierarquia</strong>, sendo a <strong>causa final a mais importante</strong>. Por quê? Porque <em>todo agente age visando uma finalidade</em>. Tudo começa com um objetivo, com uma intenção — sem o “para quê”, não há motivo para escolher a matéria, dar-lhe uma forma ou colocar-se à obra.</p>
+    <p>Essa visão é chamada de <strong>teleológica</strong> (do grego <em>telos</em> = fim, finalidade). Para Aristóteles, <strong>toda a natureza é teleológica</strong>: tudo na realidade tende a um fim. A semente tende à árvore; o ser humano tende à felicidade.</p>
+  </div>
+
+  <div class="box box-extra">
+    <div class="box-title"><span class="icon">+</span>Complemento para melhor compreensão</div>
+    <p>Esse ponto liga diretamente a metafísica à ética: se tudo na natureza tem um <em>telos</em>, qual é o <em>telos</em> do ser humano? <strong>A resposta de Aristóteles será: a felicidade (eudaimonia)</strong>. Daí o porquê de a ética aristotélica ser, no fundo, uma extensão de sua metafísica das causas.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     POLÍTICA
+     ============================================================ -->
+<section id="politica">
+  <div class="section-header"><h2><span class="num">11.</span>O Animal Político (zoon politikon)</h2></div>
+
+  <blockquote class="gold">
+    O homem é, por natureza, um animal político.
+    <cite>— Aristóteles, <em>Política</em>, I, 2</cite>
+  </blockquote>
+
+  <p>Esta talvez seja a frase mais citada de Aristóteles em provas de Filosofia, Sociologia e Atualidades. Vamos abrir o que ela significa.</p>
+
+  <div class="card bordered-wine">
+    <p>Para Aristóteles, o homem é um <strong>animal político</strong> (em grego: <em>zoon politikon</em>) e <strong>depende do Estado mais do que da família ou da comunidade</strong>. Ou seja: faz parte da <em>natureza</em> do ser humano se organizar socialmente, <strong>viver na pólis</strong> (na cidade).</p>
+    <p>Note o passo radical: Aristóteles não diz apenas que “é bom viver em sociedade”. Ele diz que a vida na pólis é <em>constitutiva</em> da humanidade. Quem não vive em uma pólis ou é mais que homem (um deus, uma figura mítica) ou é menos que homem (um bruto, um isolado).</p>
+    <p><strong>Sem o Estado</strong>, segundo Aristóteles, <strong>o ser humano recai em um egoísmo que o aproxima de um animal irracional</strong>. Sem a vida política, perdemos justamente aquilo que nos diferencia dos outros animais: a razão exercida em comum, a deliberação sobre o justo e o injusto.</p>
+  </div>
+
+  <div class="box box-attention">
+    <div class="box-title"><span class="icon">i</span>Diferença crucial em relação a Hobbes (que cai em prova)</div>
+    <p>Séculos depois, Hobbes vai dizer o oposto: o homem em estado de natureza é egoísta, e a sociedade é uma <em>convenção artificial</em> criada por contrato para evitar a guerra. <strong>Aristóteles inverte tudo isso:</strong> a sociedade é <em>natural</em> ao homem; é fora dela que se vira “animal irracional”. Comparações entre Aristóteles e contratualistas modernos (Hobbes, Locke, Rousseau) são muito frequentes em questões da FUVEST, UNICAMP e ENEM.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     FORMAS DE GOVERNO
+     ============================================================ -->
+<section id="governos">
+  <div class="section-header"><h2><span class="num">12.</span>As Formas de Governo</h2></div>
+
+  <p>Aristóteles distinguiu <strong>três formas justas</strong> de governo, conforme a <strong>quantidade de governantes no poder</strong>. E cada uma delas tem uma <strong>forma degenerada</strong> correspondente, quando o critério deixa de ser o bem comum.</p>
+
+  <h3>12.1 O critério: o bem comum</h3>
+  <div class="card">
+    <p>O critério aristotélico é simples e poderoso: <strong>uma forma de governo é justa quando visa o bem comum</strong>. Quando o governante (seja um, alguns ou muitos) governa em benefício próprio (ou de seu grupo), o governo degenera em sua forma corrupta.</p>
+  </div>
+
+  <h3>12.2 As três formas justas</h3>
+
+  <div class="gov-grid">
+    <div class="gov-card just">
+      <div class="gov-header">MONARQUIA</div>
+      <div class="gov-body">
+        <strong>Governo de um só</strong>
+        Um único governante que age em vista do <em>bem comum</em> de todos.
+      </div>
+    </div>
+    <div class="gov-card just">
+      <div class="gov-header">ARISTOCRACIA</div>
+      <div class="gov-body">
+        <strong>Governo de poucos</strong>
+        Um grupo de melhores (<em>áristoi</em> = os melhores) governa em vista do <em>bem comum</em>.
+      </div>
+    </div>
+    <div class="gov-card just">
+      <div class="gov-header">POLITEIA</div>
+      <div class="gov-body">
+        <strong>Governo da maioria</strong>
+        Governo fundado nas <em>leis</em>, em que a maioria governa em vista do <em>bem comum</em>.
+      </div>
+    </div>
+  </div>
+
+  <h3>12.3 As três formas degeneradas</h3>
+  <p>Tais formas de governo <strong>podem se degenerar</strong> e se transformar em injustas, quando <em>não visam o bem comum</em>.</p>
+
+  <div class="gov-grid">
+    <div class="gov-card unjust">
+      <div class="gov-header">TIRANIA</div>
+      <div class="gov-body">
+        <strong>← Monarquia</strong>
+        Governo de um só que visa o <em>interesse particular</em> do governante, e não da pólis.
+      </div>
+    </div>
+    <div class="gov-card unjust">
+      <div class="gov-header">OLIGARQUIA</div>
+      <div class="gov-body">
+        <strong>← Aristocracia</strong>
+        Governo dos <em>ricos</em>, visando ao bem dos <em>ricos</em> — não da coletividade.
+      </div>
+    </div>
+    <div class="gov-card unjust">
+      <div class="gov-header">DEMOCRACIA</div>
+      <div class="gov-body">
+        <strong>← Politeia</strong>
+        Governo dos <em>pobres</em>, visando ao bem dos <em>pobres</em> — ou seja, faccioso, parcial.
+      </div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Quantos governam?</th><th>Forma JUSTA (busca o bem comum)</th><th>Forma DEGENERADA (busca interesse parcial)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Um</strong></td><td>Monarquia</td><td>Tirania</td></tr>
+      <tr><td><strong>Poucos</strong></td><td>Aristocracia</td><td>Oligarquia</td></tr>
+      <tr><td><strong>Muitos</strong></td><td>Politeia</td><td>Democracia</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box box-trap">
+    <div class="box-title"><span class="icon">!</span>A pegadinha mais cobrada de toda a aula</div>
+    <p>O termo <strong>“Democracia”</strong> em <em>Aristóteles</em> é <strong>NEGATIVO</strong>! Ele se refere à <em>degeneração</em> do governo da maioria — o governo dos pobres pelos pobres, em interesse só dos pobres. Nada a ver com o sentido moderno (positivo) de democracia.</p>
+    <p>O termo positivo, em Aristóteles, é <strong>POLITEIA</strong> (às vezes traduzido como “república” ou “governo constitucional”). Trocar isso é erro clássico de prova. Cuidado especialmente com enunciados do ENEM, UNICAMP e UFRGS que jogam com essa inversão.</p>
+  </div>
+
+  <h3>12.4 A vantagem (relativa) da Democracia</h3>
+  <div class="card bordered-left">
+    <p>Aqui há uma sutileza importante: mesmo sendo uma forma degenerada, a <strong>democracia é, segundo Aristóteles, a melhor entre as formas degeneradas</strong>. Por quê?</p>
+    <p>Aristóteles considerava que era <strong>melhor para a sociedade entregar a soberania política ao povo</strong> (como ocorre na democracia) do que a alguns “homens notáveis” (como na oligarquia ou na aristocracia degeneradas) — <em>desde que o bem comum fosse a prioridade</em>.</p>
+    <p>O argumento é interessante: <strong>mesmo que um indivíduo isoladamente não seja muito competente no ato de julgar, quando unido a outros cidadãos julga melhor</strong> — porque a união reúne as qualidades de cada um. É uma espécie de embrião do que hoje chamamos de “sabedoria das multidões”.</p>
+  </div>
+
+  <div class="box box-extra">
+    <div class="box-title"><span class="icon">+</span>Complemento para melhor compreensão</div>
+    <p>Isso explica uma posição que parece paradoxal: Aristóteles critica a “democracia” no sentido técnico (governo dos pobres em interesse próprio), mas reconhece que, na prática, dar a soberania ao povo costuma ser <em>menos pior</em> que entregá-la a uma elite que tende a agir em causa própria. É um dos argumentos pró-democracia mais antigos da filosofia política.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     ÉTICA — JUSTA MEDIDA
+     ============================================================ -->
+<section id="etica">
+  <div class="section-header"><h2><span class="num">13.</span>A Ética da Justa Medida</h2></div>
+
+  <p>A ética aristotélica está exposta principalmente na <strong>Ética a Nicômaco</strong> (livro dedicado ao seu filho, Nicômaco). Ela parte de uma pergunta simples e profunda:</p>
+
+  <blockquote>
+    Qual é o fim último das nossas ações? O que mais desejamos?
+  </blockquote>
+
+  <div class="card bordered-wine">
+    <p>A resposta de Aristóteles é: <strong>a felicidade</strong> — em grego, <strong><em>eudaimonia</em></strong>. Tudo o que fazemos, fazemos em vista de outra coisa: estudamos para conseguir um emprego, conseguimos um emprego para ter dinheiro, queremos dinheiro para ter segurança, conforto, lazer… mas a <em>eudaimonia</em> é desejada <strong>por si mesma</strong>, nunca em vista de outra coisa. Por isso é o <em>fim último</em>.</p>
+    <p><strong>Atenção:</strong> <em>eudaimonia</em> não é “felicidade” no sentido emocional ou momentâneo (sentir-se feliz). É algo mais próximo de “florescimento pleno”, “vida bem-sucedida em sentido humano integral”. Traduções comuns: “bem-viver”, “plenitude”.</p>
+  </div>
+
+  <h3>13.1 Como se atinge a eudaimonia? Pela virtude.</h3>
+  <div class="card">
+    <p>Para ser feliz, o ser humano deve <strong>se guiar pela razão</strong>, orientando seus atos à <strong>prática da virtude</strong>. A virtude é, então, o caminho prático para a felicidade.</p>
+    <p>E o que é, especificamente, a virtude para Aristóteles?</p>
+  </div>
+
+  <h3>13.2 A doutrina da Justa Medida (<em>mesotês</em>)</h3>
+  <div class="card bordered-wine">
+    <p>Para Aristóteles, <strong>ser virtuoso é praticar a justa medida</strong>, que consiste em <strong>não pecar pela falta, nem pelo excesso</strong>. A virtude é o <em>meio-termo</em> entre dois vícios opostos: um por defeito e outro por excesso.</p>
+    <p>Importante: o meio-termo <strong>não é um meio aritmético</strong> (não é “a média”). É um meio-termo <em>relativo a nós</em>, que varia conforme a situação, a pessoa e as circunstâncias. Coragem para um soldado experiente não é a mesma que para um recruta novato.</p>
+  </div>
+
+  <div class="scheme">
+    <h4>Exemplos clássicos da justa medida</h4>
+
+    <div class="virtue-line">
+      <div class="extreme">COVARDIA<br><small style="opacity:.85">(falta)</small></div>
+      <div class="arrow-h">←</div>
+      <div class="middle">CORAGEM<br><small style="opacity:.85">(virtude)</small></div>
+      <div class="arrow-h">→</div>
+      <div class="extreme">VALENTIA TEMERÁRIA<br><small style="opacity:.85">(excesso)</small></div>
+    </div>
+
+    <div class="virtue-line">
+      <div class="extreme">FRAQUEZA DE VONTADE<br><small style="opacity:.85">(falta)</small></div>
+      <div class="arrow-h">←</div>
+      <div class="middle">PERSEVERANÇA<br><small style="opacity:.85">(virtude)</small></div>
+      <div class="arrow-h">→</div>
+      <div class="extreme">OBSESSÃO / TEIMOSIA<br><small style="opacity:.85">(excesso)</small></div>
+    </div>
+  </div>
+
+  <div class="box box-extra">
+    <div class="box-title"><span class="icon">+</span>Complemento para melhor compreensão (outros exemplos clássicos)</div>
+    <p>Aristóteles desenvolve a doutrina com muitos exemplos. Alguns dos mais conhecidos da <em>Ética a Nicômaco</em>:</p>
+    <ul>
+      <li><strong>Temperança</strong>: entre a insensibilidade (falta) e a intemperança / libertinagem (excesso).</li>
+      <li><strong>Liberalidade</strong> (saber dar bem): entre a avareza (falta) e a prodigalidade (excesso).</li>
+      <li><strong>Magnanimidade</strong>: entre a pusilanimidade (falta) e a vaidade (excesso).</li>
+      <li><strong>Mansidão</strong>: entre a apatia (falta) e a irascibilidade (excesso).</li>
+    </ul>
+    <p>Note que nem toda ação tem meio-termo: assassinato, adultério e roubo, por exemplo, são <em>maus em si</em> — para Aristóteles, não há “justa medida” para matar alguém.</p>
+  </div>
+
+  <div class="box box-attention">
+    <div class="box-title"><span class="icon">i</span>Como se forma a virtude? Pelo hábito.</div>
+    <p>Outro ponto que cai muito: a virtude, para Aristóteles, <strong>não é inata</strong>. Ela é adquirida pelo <em>hábito</em> (em grego, <em>héxis</em>). Por isso ele diz que <em>“tornamo-nos justos praticando atos justos, corajosos praticando atos corajosos”</em>. A ética aristotélica é uma <strong>ética do caráter</strong>: trabalha-se a virtude pelo treino, pela repetição, pela educação. Daí a importância da pólis: ela educa o caráter do cidadão.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     PEGADINHAS
+     ============================================================ -->
+<section id="pegadinhas">
+  <div class="section-header"><h2><span class="num">14.</span>Pontos de Atenção e Pegadinhas</h2></div>
+
+  <div class="box box-trap">
+    <div class="box-title"><span class="icon">!</span>1. “Democracia” em Aristóteles é negativa</div>
+    <p>Como vimos, em Aristóteles democracia é a <em>degeneração</em> da politeia — governo dos pobres em interesse próprio. Cuidado com enunciados que tentam tratar a democracia aristotélica como sinônimo da democracia moderna.</p>
+  </div>
+
+  <div class="box box-trap">
+    <div class="box-title"><span class="icon">!</span>2. Quem cunhou o termo “Metafísica”?</div>
+    <p>Não foi Aristóteles. Foi <strong>Andrônico de Rodes</strong>, séculos depois, por motivo editorial.</p>
+  </div>
+
+  <div class="box box-trap">
+    <div class="box-title"><span class="icon">!</span>3. A potência não é privação</div>
+    <p>Potência não é “falta”. É <em>capacidade real e determinada</em> de se tornar algo. Uma pedra não tem a potência de virar advogado, porque essa capacidade não está nela.</p>
+  </div>
+
+  <div class="box box-trap">
+    <div class="box-title"><span class="icon">!</span>4. Causa final ≠ causa eficiente</div>
+    <p>A causa eficiente responde a <em>quem</em> fez. A causa final responde a <em>para quê</em>. Trocar uma pela outra é erro recorrente.</p>
+  </div>
+
+  <div class="box box-trap">
+    <div class="box-title"><span class="icon">!</span>5. Justa medida ≠ média aritmética</div>
+    <p>O meio-termo aristotélico é <em>contextual</em>, varia com a pessoa e a situação. Não confunda com média estatística.</p>
+  </div>
+
+  <div class="box box-trap">
+    <div class="box-title"><span class="icon">!</span>6. Aristóteles é EMPIRISTA, Platão é RACIONALISTA</div>
+    <p>Quando uma alternativa disser “para Aristóteles, o conhecimento começa pela razão pura, independente dos sentidos”, é falsa. O conhecimento, em Aristóteles, começa <em>pelos sentidos</em>.</p>
+  </div>
+
+  <div class="box box-trap">
+    <div class="box-title"><span class="icon">!</span>7. Forma ≠ formato visual</div>
+    <p>A “forma” (<em>morphé</em>) aristotélica não é o “formato” no sentido visual / geométrico. É o <em>princípio organizador</em>, a essência. Um cavalo magro e um cavalo gordo têm a mesma forma (a essência cavalo), mas formatos visuais diferentes.</p>
+  </div>
+
+  <div class="box box-trap">
+    <div class="box-title"><span class="icon">!</span>8. Deus aristotélico ≠ Deus cristão</div>
+    <p>O Primeiro Motor Imóvel <strong>não cria o mundo do nada</strong>. Ele não é pessoal, não tem providência, não interage com os homens. Ele move tudo apenas por atração. Confundir com o Deus judaico-cristão é erro filosófico grave.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     O QUE MAIS CAI EM PROVA
+     ============================================================ -->
+<section id="prova">
+  <div class="section-header"><h2><span class="num">15.</span>O que mais cai em prova</h2></div>
+
+  <div class="box box-exam">
+    <div class="box-title"><span class="icon">✓</span>Top de questões do ENEM e Vestibulares</div>
+    <ol>
+      <li><strong>Contraste Aristóteles × Platão</strong> sobre teoria do conhecimento (com referência à <em>Escola de Atenas</em> de Rafael). É <em>o</em> tema mais recorrente.</li>
+      <li><strong>“O homem é um animal político”</strong> — texto-base que cobra diferença em relação aos contratualistas (Hobbes, Locke, Rousseau).</li>
+      <li><strong>Formas de governo</strong> — em especial a oposição entre <em>Politeia</em> (positiva) e <em>Democracia</em> (negativa, no sentido aristotélico).</li>
+      <li><strong>Eudaimonia e Justa Medida</strong> — texto da <em>Ética a Nicômaco</em> em que se pede identificar a felicidade como fim último das ações humanas.</li>
+      <li><strong>Ato e Potência</strong> — geralmente com exemplos cotidianos (semente/árvore, criança/adulto) e pergunta sobre o que muda e o que permanece.</li>
+      <li><strong>Quatro Causas</strong> — texto descrevendo um objeto (uma estátua, um móvel) e pedindo identificar cada causa.</li>
+      <li><strong>Hilemorfismo</strong> — diferença entre matéria e forma, geralmente em comparação com o dualismo platônico.</li>
+      <li><strong>Indissociabilidade entre Ética e Política</strong> — texto pedindo justificativa para a tese de que não há boa política sem cidadão virtuoso.</li>
+    </ol>
+  </div>
+
+  <div class="box box-exam">
+    <div class="box-title"><span class="icon">✓</span>Conceitos que devem estar memorizados</div>
+    <ul>
+      <li><em>Zoon politikon</em> — animal político</li>
+      <li><em>Eudaimonia</em> — felicidade / florescimento</li>
+      <li><em>Mesotês</em> — justa medida / meio-termo</li>
+      <li><em>Hylé</em> — matéria / <em>Morphé</em> — forma</li>
+      <li><em>Ousía</em> — substância</li>
+      <li><em>Telos</em> — fim, finalidade</li>
+      <li><em>Pólis</em> — cidade-estado</li>
+      <li><em>Politeia</em> — governo justo da maioria</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================
+     VÍDEOS
+     ============================================================ -->
+<section id="videos">
+  <div class="section-header"><h2><span class="num">16.</span>Vídeos Recomendados (verificados, link direto)</h2></div>
+
+  <p>Cada botão abaixo leva <strong>diretamente</strong> ao vídeo no YouTube. Todos foram conferidos: existem, são públicos e tratam exatamente do tópico indicado. Os professores são referência entre vestibulandos.</p>
+
+  <h3>📌 Introdução geral à filosofia de Aristóteles</h3>
+  <div class="video-list">
+    <a class="video-btn" href="https://www.youtube.com/watch?v=f5sljjuTkzg" target="_blank" rel="noopener">
+      <div class="v-top"><div class="play">▶</div><div class="v-label">YouTube · Aula</div></div>
+      <div class="v-body">
+        <div class="v-title">A Filosofia de Aristóteles — Resumo ENEM</div>
+        <p>Professor Alan Ghedini apresenta vida, obra e principais ideias do filósofo.</p>
+        <div class="v-meta"><span>Canal: <strong>Curso Enem Gratuito</strong></span><span>5 min</span></div>
+      </div>
+    </a>
+    <a class="video-btn" href="https://www.youtube.com/watch?v=c2b9_qs4Dxg" target="_blank" rel="noopener">
+      <div class="v-top"><div class="play">▶</div><div class="v-label">YouTube · Aula</div></div>
+      <div class="v-body">
+        <div class="v-title">Filosofia de Aristóteles: biografia e obras</div>
+        <p>Professor Ernani da Silva detalha biografia, Liceu e obras principais.</p>
+        <div class="v-meta"><span>Canal: <strong>Curso Enem Gratuito</strong></span><span>5 min</span></div>
+      </div>
+    </a>
+  </div>
+
+  <h3>📌 Metafísica / Teoria do Conhecimento</h3>
+  <div class="video-list">
+    <a class="video-btn" href="https://www.youtube.com/watch?v=LIowUF7oZrM" target="_blank" rel="noopener">
+      <div class="v-top"><div class="play">▶</div><div class="v-label">YouTube · Aula</div></div>
+      <div class="v-body">
+        <div class="v-title">Aristóteles para o ENEM (Metafísica)</div>
+        <p>Pedro Rennó (canal Parabólica) explica de modo prático a metafísica aristotélica.</p>
+        <div class="v-meta"><span>Canal: <strong>Parabólica</strong></span><span>13 min</span></div>
+      </div>
+    </a>
+    <a class="video-btn" href="https://www.youtube.com/watch?v=MH_e90UwGbQ" target="_blank" rel="noopener">
+      <div class="v-top"><div class="play">▶</div><div class="v-label">YouTube · Aula</div></div>
+      <div class="v-body">
+        <div class="v-title">Aristóteles: a teoria do Ato e Potência</div>
+        <p>Professor Ernani da Silva: do problema do movimento à solução aristotélica.</p>
+        <div class="v-meta"><span>Canal: <strong>Curso Enem Gratuito</strong></span><span>7 min</span></div>
+      </div>
+    </a>
+  </div>
+
+  <h3>📌 Política — animal político e formas de governo</h3>
+  <div class="video-list">
+    <a class="video-btn" href="https://www.youtube.com/watch?v=mzuupnFyzx4" target="_blank" rel="noopener">
+      <div class="v-top"><div class="play">▶</div><div class="v-label">YouTube · Aula</div></div>
+      <div class="v-body">
+        <div class="v-title">Aristóteles: o homem é um animal político</div>
+        <p>Professor Ernani da Silva explica o conceito de <em>zoon politikon</em> e suas implicações.</p>
+        <div class="v-meta"><span>Canal: <strong>Curso Enem Gratuito</strong></span><span>~6 min</span></div>
+      </div>
+    </a>
+    <a class="video-btn" href="https://www.youtube.com/watch?v=Y23QpOer_n4" target="_blank" rel="noopener">
+      <div class="v-top"><div class="play">▶</div><div class="v-label">YouTube · Aula</div></div>
+      <div class="v-body">
+        <div class="v-title">Regimes Políticos e Formas de Governo em Aristóteles</div>
+        <p>Aula completa do canal Brasil Escola sobre as 6 formas de governo.</p>
+        <div class="v-meta"><span>Canal: <strong>Brasil Escola</strong></span><span>12 min</span></div>
+      </div>
+    </a>
+    <a class="video-btn" href="https://www.youtube.com/watch?v=tZsdJjXKokM" target="_blank" rel="noopener">
+      <div class="v-top"><div class="play">▶</div><div class="v-label">YouTube · Aula</div></div>
+      <div class="v-body">
+        <div class="v-title">Aristóteles e as Formas de Governo</div>
+        <p>Professor Fabiano (Sala do Saber) aprofunda monarquia, aristocracia, politeia e suas degenerações.</p>
+        <div class="v-meta"><span>Canal: <strong>Sala do Saber</strong></span><span>21 min</span></div>
+      </div>
+    </a>
+  </div>
+
+  <h3>📌 Ética + Política (síntese visual)</h3>
+  <div class="video-list">
+    <a class="video-btn" href="https://www.youtube.com/watch?v=0F8H9QgrYcI" target="_blank" rel="noopener">
+      <div class="v-top"><div class="play">▶</div><div class="v-label">YouTube · Aula</div></div>
+      <div class="v-body">
+        <div class="v-title">Aristóteles — Ética e Política (Quer Que Desenhe?)</div>
+        <p>Aula visual da série “Quer Que Desenhe?” (Descomplica), excelente para revisão final integrada.</p>
+        <div class="v-meta"><span>Canal: <strong>Descomplica</strong></span><span>5 min</span></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============================================================
+     REVISÃO FINAL
+     ============================================================ -->
+<section id="revisao">
+  <div class="section-header"><h2><span class="num">17.</span>Revisão Final dos Conceitos Principais</h2></div>
+
+  <div class="review">
+    <h3>Os 12 pontos para fechar o tópico</h3>
+    <ol>
+      <li><strong>Biografia:</strong> Aristóteles (384–322 a.C.), nascido em Estagira, foi <em>discípulo de Platão por 20 anos</em> e <em>preceptor de Alexandre, o Grande</em>.</li>
+      <li><strong>Liceu:</strong> escola que fundou em Atenas (335 a.C.), também chamada de Peripatos. Daí o nome <em>peripatéticos</em> para seus discípulos.</li>
+      <li><strong>Teoria do conhecimento:</strong> empirismo — “nada está no intelecto que antes não tenha passado pelos sentidos”. <em>Oposto</em> ao platonismo: a essência das coisas está nas próprias coisas, não em um mundo das ideias.</li>
+      <li><strong>Hierarquia das ciências:</strong> Teoréticas (superiores) → Práticas → Poéticas (inferiores). <em>Ética e Política são indissociáveis</em>, ambas práticas.</li>
+      <li><strong>Metafísica:</strong> ciência do “ser enquanto ser”. <em>Nome</em> cunhado por <strong>Andrônico de Rodes</strong>, não por Aristóteles.</li>
+      <li><strong>Substância e acidente:</strong> substância (cavalo) é o que é em si; acidente (cor, tamanho) é o que é em outro.</li>
+      <li><strong>Hilemorfismo:</strong> tudo é matéria (<em>hylé</em>) + forma (<em>morphé</em>); a essência está nas próprias coisas.</li>
+      <li><strong>Ato e potência:</strong> movimento é passagem da potência ao ato. Potência não é privação; é capacidade real.</li>
+      <li><strong>Quatro causas:</strong> material, formal, eficiente e final. A <em>causa final</em> é a mais importante (visão teleológica).</li>
+      <li><strong>Primeiro Motor Imóvel:</strong> deus aristotélico, não criador, que move tudo por atração.</li>
+      <li><strong>Política:</strong> homem é <em>zoon politikon</em>. Seis formas de governo: 3 justas (Monarquia, Aristocracia, Politeia) e 3 degeneradas (Tirania, Oligarquia, <em>Democracia</em> — atenção ao sentido negativo!). Critério: bem comum.</li>
+      <li><strong>Ética:</strong> fim último é a <em>eudaimonia</em> (felicidade). Caminho: a virtude. Virtude é a <em>justa medida</em> (meio-termo) entre falta e excesso. Adquirida pelo hábito.</li>
+    </ol>
+  </div>
+
+  <div style="text-align:center;margin-top:40px;font-family:Georgia,serif;color:var(--ink-soft);font-style:italic">
+    “Conhecer é conhecer pelas causas.”<br>
+    <span style="font-size:14px;color:var(--wine)">— Aristóteles, <em>Metafísica</em></span>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="ornament">❦ ❦ ❦</div>
+  <p>Aula completa baseada nos slides enviados (“A filosofia de Aristóteles — partes 1 e 2”).</p>
+  <p style="margin-top:6px;font-size:12px;opacity:.7">Conteúdo organizado para 2º ano EM com foco em vestibulares concorridos · 2026</p>
+</footer>
+
+</body>
+</html>
